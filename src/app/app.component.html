@@ -1,0 +1,58 @@
+<div class="columns" style="margin-top: 2rem;">
+  <div class="column is-half is-offset-one-quarter">
+    <div class="box">
+      <h1 class="title">Password Generator</h1>
+      <hr>
+
+      <div class="field">
+        <div class="control">
+          <label for="length">Length</label>
+          <input type="text" name="length" class="input" (input)="onChangeLength($event.target.value)">
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label class="checkbox" for="use-letters">
+            <input type="checkbox" class="form-check-input" id="use-letters" (change)="onChangeLetters()">
+            Use letters
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label class="checkbox" for="use-numbers">
+            <input  type="checkbox" class="form-check-input" id="use-numbers" (change)="onChangeNums()">
+            Use numbers
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label class="form-check-label" for="use-symbols">
+            <input  type="checkbox" class="form-check-input" id="use-symbols" (change)="onChangeSymbols()">
+            Use symbols
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <button [disabled]="disabledBth()" class="button is-success is-fullwidth" (click)="generatePassword()" >
+            Generate</button>
+        </div>
+      </div>
+
+      <div class="field" *ngIf="password" >
+        <div class="control">
+          <label for="password">
+            Your Password
+            <input type="text" name="password" class="input" [value]="password">
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
